@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <head>
     <meta charset="UTF-8" />
 
     <meta name="generator" content="Hugo 0.139.3"><meta name="theme-color" content="#fff" />
@@ -49,12 +49,12 @@
     <link rel="manifest" href="/manifest.json" />
 
     
-    <link rel="alternate" type="application/atom&#43;xml" href="http://localhost:1313/atom.xml" title="Space of Epoché" />
-    <link rel="alternate" type="application/rss&#43;xml" href="http://localhost:1313/rss.xml" title="Space of Epoché" />
+    <link rel="alternate" type="application/atom&#43;xml" href="https://epochess.github.io/atom.xml" title="Space of Epoché" />
+    <link rel="alternate" type="application/rss&#43;xml" href="https://epochess.github.io/rss.xml" title="Space of Epoché" />
     
 
     
-        <link rel="canonical" href="http://localhost:1313/" />
+        <link rel="canonical" href="https://epochess.github.io/" />
     
 
 <script type="application/ld+json">
@@ -63,11 +63,11 @@
         "@type": "WebSite",
         "datePublished": "2022-10-20T20:17:43+00:00",
         "dateModified": "2024-12-12T09:21:24+08:00",
-        "url": "http://localhost:1313/",
+        "url": "https://epochess.github.io/",
         "description": " About Me 不知道在干啥中。\n",
         "author": {
             "@type": "Person",
-            "url": "http://localhost:1313/",
+            "url": "https://epochess.github.io/",
             
         },
         "license": "[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)",
@@ -256,7 +256,14 @@ h5 {
             
 
         </div>
-        
+        <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('\/sw.js');
+            });
+        }
+    </script>
+
 
         
 
