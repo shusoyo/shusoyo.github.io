@@ -44,6 +44,8 @@
 
         shellHook = ''
           echo hello hugo
+          mkdir -p themes
+          ln -s ${meme} themes/meme
           exec fish
         '';
       };

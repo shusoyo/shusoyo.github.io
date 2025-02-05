@@ -985,28 +985,28 @@ customizeScrollbar = true
 #      SVG，则可留空（""）品牌栏字体。
 
 # 品牌栏
-fontFamilySiteBrand = "'Shippori Mincho','Noto Serif SC'"
+fontFamilySiteBrand = "'Radley','Noto Serif SC'"
 # 菜单栏
-fontFamilyMenu = "'Shippori Mincho','Noto Serif SC'"
+fontFamilyMenu = "'Radley','Noto Serif SC'"
 # 文章标题、文章副标题、列表标题、列表的年份和月份标题、相关文章标题、文章上下篇标题、表格的表头、定义列表中的术语
-fontFamilyTitle = "'Shippori Mincho', 'Noto Serif SC', serif"
+fontFamilyTitle = "'Radley', 'Noto Serif SC', serif"
 # 分节标题、目录标题
-fontFamilyHeadings = "'Shippori Mincho', 'Noto Serif SC', 'Amstelvar', serif"
+fontFamilyHeadings = "'Radley', 'Noto Serif SC', 'Amstelvar', serif"
 # 代码、上标、文章元信息、文章更新徽章、文章的 Git 版本信息、极简页脚、不蒜子站点浏览计数
-fontFamilyCode = "'Fira Code', 'Shippori Mincho', 'Noto Serif SC', monospace"
+fontFamilyCode = "'Fira Code', 'Radley', 'Noto Serif SC', monospace"
 # 引用
-fontFamilyQuote = "'Shippori Mincho', 'Noto Serif SC', serif"
+fontFamilyQuote = "'Radley', 'Noto Serif SC', serif"
 # 文章目录
-fontFamilyTOC = "'Shippori Mincho', 'Noto Serif SC', serif"
+fontFamilyTOC = "'Radley', 'Noto Serif SC', serif"
 # 说明文字
-fontFamilyCaption = "'Shippori Mincho', 'Noto Serif SC', serif"
+fontFamilyCaption = "'Radley', 'Noto Serif SC', serif"
 # 页脚
 fontFamilyFooter = "monospace"
 # 主体
-fontFamilyBody = "'Shippori Mincho', 'Noto Serif SC', serif"
+fontFamilyBody = "'Radley', 'Noto Serif SC', serif"
 
 # 网络字体链接
-fontsLink = "https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700;800&family=Fira+Code:wght@400;700&display=swap"
+fontsLink = "https://fonts.googleapis.com/css2?family=Radley:ital@0;1&family=Fira+Code:wght@400;700&display=swap"
 # fontsLink = ""
 # 说明：要想读者一定体验到你设置的字体，最好
 #      采用网络字体。MemE 主题目前仅支持

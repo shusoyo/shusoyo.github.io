@@ -2,3 +2,7 @@
 
 public
 result
+themes
+resources
+
+.hugo_build.lock
