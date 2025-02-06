@@ -1,5 +1,5 @@
 {
-  description = "ss's personal blog";
+  description = "ss's blog";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -31,9 +31,9 @@
           cp -r public $out
         '';
 
-        meta = with pkgs.lib; {
-          description = "ss's personal blog";
-          platforms = platforms.all;
+        meta = {
+          description = "ss's blog";
+          platforms   = pkgs.lib.platforms.all;
         };
       };
     });
@@ -44,6 +44,7 @@
 
         shellHook = ''
           echo hello hugo
+          rm -rf themes
           mkdir -p themes
           ln -s ${meme} themes/meme
           exec fish

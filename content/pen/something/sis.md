@@ -38,62 +38,78 @@ networking = {
   hostName    = "sis";
   useDHCP     = false;
   useNetworkd = true;
+  nameservers = [ "223.6.6.6" "8.8.8.8" ];
 
-  firewall.enable = false;
+  firewall.enable = false; # No local firewall
+};
+
+services.resolved = {
+  enable  = true;
+  domains = [ "~." ];
+  fallbackDns = [ "223.5.5.5" "8.8.8.8" ];
+  extraConfig = ''
+    DNSStubListenerExtra=10.0.0.1
+    MulticastDNS=no
+  '';
 };
 
 systemd.network.enable = true;
-systemd.network.networks = {
-  "50-usb-RNDIS" = {
-    matchConfig.Name = "enp0s20f0*";
-    DHCP = "yes";
-    dns  = [ "8.8.8.8" ];
-    dhcpV4Config = {
-      RouteMetric = 100;
-    };
+systemd.network.networks."50-usb-RNDIS" = {
+  matchConfig.Name = "enp0s20f0*";
+  DHCP = "yes";
+  dhcpV4Config = {
+    RouteMetric = 100;
+  };
+};
+
+systemd.network.networks."10-enp1s0" = {
+  matchConfig.Name = "enp1s0";
+
+  address = [ "10.85.13.10/25" ];
+
+  routes  = [
+    { Gateway = "10.85.13.1"; Metric = 300; }
+  ];
+
+  networkConfig = {
+    DHCPServer = "yes";
   };
 
-  "10-enp1s0" = {
-    matchConfig.Name = "enp1s0";
-    address = [
-      "10.85.13.10/25"
-    ];
-    routes  = [
-      { Gateway = "10.85.13.1"; Metric = 300; }
-    ];
+  dhcpServerConfig = {
+    ServerAddress = "10.0.0.1/24";
+    PoolOffset = 20;
+    PoolSize   = 30;
+    DNS = [ "10.0.0.1" ];
   };
+
+  dhcpServerStaticLeases = [
+    # ap
+    { MACAddress = "5c:02:14:9e:d6:dd"; Address = "10.0.0.2";  }
+    # ss
+    { MACAddress = "00:e2:69:6e:2c:ed"; Address = "10.0.0.10"; }
+  ];
+};
+
+networking.nftables = {
+  enable = true;
+  rulesetFile = ./asserts/ruleset.nft;
 };
 ```
 
-And the Dnsmasq service provide dhcp server.
+### Nftables ruleset
 
-```nix
-services.dnsmasq = {
-  enable = true;
-  settings = {
-    interface = "enp1s0";
+```txt
+table ip sharing {
+  chain postrouting {
+    type nat hook postrouting priority 100; policy accept;
+    oifname "enp0s20f0u5" masquerade
+  }
 
-    bind-interfaces    = true;
-    dhcp-authoritative = true;
-
-    dhcp-host = [
-      "00:e2:69:6e:2c:ed,10.85.13.20" # ss's hac
-      "a8:b1:3b:8e:bc:5e,10.85.13.21" # ms's laptop
-    ];
-
-    dhcp-option = [
-      "option:router,10.85.13.10"
-    ];
-
-    dhcp-range = [
-      "10.85.13.40,10.85.13.90,24h"
-    ];
-
-    local-service     = true;
-    bogus-priv        = true;
-    domain-needed     = true;
-  };
-};
+  chain input {
+    type filter hook input priority 0; policy accept;
+    iifname "enp1s0" accept
+  }
+}
 ```
 
 ## Iot device: HP laserJet printer
@@ -126,16 +142,6 @@ services.printing = {
     DefaultEncryption Never
   '';
 };
-
-hardware.printers = {
-  ensureDefaultPrinter = "HP_laserjet_P1106";
-
-  ensurePrinters = [{
-    name       = "HP_laserjet_P1106";
-    location   = "sis";
-    deviceUri  = "hp:/usb/HP_LaserJet_Professional_P1106?serial=000000000QNBJ3P2PR1a";
-    model      = "drv:///hp/hpcups.drv/hp-laserjet_professional_p1106.ppd";
-    ppdOptions = { PageSize = "A4"; };
-  }];
-};
 ```
+
+Use `NIXPKGS_ALLOW_UNFREE=1 nix-shell -p hplipWithPlugin --run 'sudo -E hp-setup -i'` to setup HP LaserJet Professional P1106.
