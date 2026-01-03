@@ -3,11 +3,11 @@
     "meme": {
       "flake": false,
       "locked": {
-        "lastModified": 1736636253,
-        "narHash": "sha256-tSPSRkUNerOl/38BCHHt1dHPcQUDLHCtFrzkRzHvE+Q=",
+        "lastModified": 1753252876,
+        "narHash": "sha256-Hfpr8ne9Vrsp7PYWVHJur4yPLdvpZRLZoZYG0SVBOfc=",
         "owner": "reuixiy",
         "repo": "hugo-theme-meme",
-        "rev": "6573fae43d85a40fcf18a30bb7fa630396acf771",
+        "rev": "cf2d984118c34acc8b4e00da50b5c39aa305b8ac",
         "type": "github"
       },
       "original": {
@@ -18,11 +18,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1736883708,
-        "narHash": "sha256-uQ+NQ0/xYU0N1CnXsa2zghgNaOPxWpMJXSUJJ9W7140=",
+        "lastModified": 1767116409,
+        "narHash": "sha256-5vKw92l1GyTnjoLzEagJy5V5mDFck72LiQWZSOnSicw=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "eb62e6aa39ea67e0b8018ba8ea077efe65807dc8",
+        "rev": "cad22e7d996aea55ecab064e84834289143e44a0",
         "type": "github"
       },
       "original": {
