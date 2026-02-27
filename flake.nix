@@ -11,7 +11,7 @@
   };
 
   outputs = { self, nixpkgs, meme }: let
-    systems = [ "x86_64-linux" "x86_64-darwin" ];
+    systems = [ "x86_64-linux" "x86_64-darwin" "aarch64-darwin" ];
 
     for-all-system = f: nixpkgs.lib.genAttrs
       systems (system: f nixpkgs.legacyPackages.${system})

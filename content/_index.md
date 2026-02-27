@@ -40,3 +40,8 @@ I am suspending.
 ##### Forest
 
 A forest of [My Evergreen Notes](https://shusoyo.github.io/forest/).
+
+
+##### Study Notes
+
+A [Notion Site](https://epoches.notion.site/Notes-2d6bc74f056c44f084e2f5fd3a49103a) on my own.

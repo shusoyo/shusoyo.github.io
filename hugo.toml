@@ -2,7 +2,7 @@
 # 站点配置
 
 baseURL = "https://epochess.github.io/"
-title = "Space of Epoché"
+title = "Epoché"
 languageCode = "zh-CN"
 hasCJKLanguage = true
 # 版权信息（支持 Markdown）
@@ -368,9 +368,9 @@ homeLayout = "page"
 ## 「诗意人生」
 # 诗句，支持 Markdown
 homePoetry = [
-    # "the hunger of my heart",
-    # "I am trying to bribe you with uncertainty",
-    # "with danger, with defeat.",
+  # "the hunger of my heart",
+  # "I am trying to bribe you with uncertainty",
+  # "with danger, with defeat.",
 ]
 
 # 底部链接的内间距，单位：em
